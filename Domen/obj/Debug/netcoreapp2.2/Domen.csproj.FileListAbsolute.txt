@@ -1,0 +1,9 @@
+C:\Users\Aleksandar\source\repos\Post\Domen\bin\Debug\netcoreapp2.2\Domen.deps.json
+C:\Users\Aleksandar\source\repos\Post\Domen\bin\Debug\netcoreapp2.2\Domen.dll
+C:\Users\Aleksandar\source\repos\Post\Domen\bin\Debug\netcoreapp2.2\Domen.pdb
+C:\Users\Aleksandar\source\repos\Post\Domen\obj\Debug\netcoreapp2.2\Domen.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar\source\repos\Post\Domen\obj\Debug\netcoreapp2.2\Domen.AssemblyInfoInputs.cache
+C:\Users\Aleksandar\source\repos\Post\Domen\obj\Debug\netcoreapp2.2\Domen.AssemblyInfo.cs
+C:\Users\Aleksandar\source\repos\Post\Domen\obj\Debug\netcoreapp2.2\Domen.dll
+C:\Users\Aleksandar\source\repos\Post\Domen\obj\Debug\netcoreapp2.2\Domen.pdb
+C:\Users\Aleksandar\source\repos\Post\Domen\obj\Debug\netcoreapp2.2\Domen.csprojAssemblyReference.cache

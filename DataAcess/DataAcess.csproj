@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190601091427_dvanaesta.cs" />
+    <Compile Remove="Migrations\20190601091427_dvanaesta.Designer.cs" />
+    <Compile Remove="Migrations\20190601094436_trinaesta.cs" />
+    <Compile Remove="Migrations\20190601094436_trinaesta.Designer.cs" />
+    <Compile Remove="Migrations\20190601095252_trinaestaaa.cs" />
+    <Compile Remove="Migrations\20190601095252_trinaestaaa.Designer.cs" />
+    <Compile Remove="Migrations\20190601095747_trinaestaaaaaaa.cs" />
+    <Compile Remove="Migrations\20190601095747_trinaestaaaaaaa.Designer.cs" />
+    <Compile Remove="Migrations\20190601095903_cetrnaesta.cs" />
+    <Compile Remove="Migrations\20190601095903_cetrnaesta.Designer.cs" />
+    <Compile Remove="Migrations\20190603144424_petnaesta.cs" />
+    <Compile Remove="Migrations\20190603144424_petnaesta.Designer.cs" />
+    <Compile Remove="Migrations\20190603144827_petnaestaaa.cs" />
+    <Compile Remove="Migrations\20190603144827_petnaestaaa.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domen\Domen.csproj" />
+  </ItemGroup>
+
+</Project>

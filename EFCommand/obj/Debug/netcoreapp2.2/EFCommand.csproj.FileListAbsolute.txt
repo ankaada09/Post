@@ -1,0 +1,16 @@
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\EFCommand.deps.json
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\EFCommand.dll
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\EFCommand.pdb
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\Aplication.dll
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\DataAcess.dll
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\Domen.dll
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\Aplication.pdb
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\DataAcess.pdb
+C:\Users\Aleksandar\source\repos\Post\EFCommand\bin\Debug\netcoreapp2.2\Domen.pdb
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.csprojAssemblyReference.cache
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.AssemblyInfoInputs.cache
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.AssemblyInfo.cs
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.csproj.CopyComplete
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.dll
+C:\Users\Aleksandar\source\repos\Post\EFCommand\obj\Debug\netcoreapp2.2\EFCommand.pdb

@@ -1,0 +1,14 @@
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\DataAcess.deps.json
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\DataAcess.dll
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.AssemblyInfoInputs.cache
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.AssemblyInfo.cs
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.csprojAssemblyReference.cache
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\DataAcess.runtimeconfig.json
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\DataAcess.runtimeconfig.dev.json
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\DataAcess.pdb
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\Domen.dll
+C:\Users\Aleksandar\source\repos\Post\DataAcess\bin\Debug\netcoreapp2.2\Domen.pdb
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.csproj.CopyComplete
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.dll
+C:\Users\Aleksandar\source\repos\Post\DataAcess\obj\Debug\netcoreapp2.2\DataAcess.pdb

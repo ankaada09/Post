@@ -1,0 +1,38 @@
+﻿@model Web.Models.CategoryIndexViewModel
+@{
+     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                   Id
+                </th>
+                <th>
+                   Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var posts in Model.CategoryPosts)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => posts.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => posts.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = posts.Id }) |
+                       
+                        @Html.ActionLink("Delete", "Delete", new {  id=posts.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

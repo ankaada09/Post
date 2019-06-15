@@ -1,0 +1,89 @@
+﻿@model Web.Models.PostIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<!--================Blog Area =================-->
+<section class="blog_area p_120">
+    <div class="container">
+        <div class="row">
+            @foreach (var posts in Model.Posts)
+            {
+                <div class="col-lg-8">
+                    <div class="blog_left_sidebar">
+                        <article class="blog_style1">
+                            <div class="blog_img">
+                                <img class="img-fluid" src="img/home-blog/blog-1.jpg" alt="">
+                            </div>
+                            <div class="blog_text">
+                                <div class="blog_text_inner">
+                                    <a class="cat" href="#"></a>
+                                    <a href="single-blog.html"><h4>@posts.Name</h4></a>
+                                    <p>@posts.Text</p>
+                                    <div class="date">
+                                        <i class="fa fa-calendar" aria-hidden="true"></i> @posts.CreatedAt
+                                        @posts.UserId
+
+                                        <p> @posts.CategoryName</p>
+                                    </div>
+                                    @foreach (var slika in posts.PictureDtos)
+                                    {
+                                        <p>@slika.Name</p>
+                                    }
+                                    @Html.ActionLink("Edit", "Edit", new { id = posts.Id }) |
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = posts.Id })
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            }
+            <div class="col-lg-4">
+                <div class="blog_right_sidebar">
+                    <aside class="single_sidebar_widget search_widget">
+                        <div class="input-group">
+                            <form asp-controller="Post" asp-action="Index" method="get" >
+                               
+                                <input type="text" class="form-control" placeholder="Search Posts" name="searchString">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+                                </span>
+                            </form>
+                        </div><!-- /input-group -->
+                        <div class="br"></div>
+                    </aside>
+                    <aside class="single_sidebar_widget author_widget">
+
+                        <h4 class="widget_title">Post Catgories</h4>
+                        <div class="social_icon">
+                            <ul class="list cat-list">
+                                @foreach (var category in Model.CategoryPosts)
+                                {
+                                    <li>
+                                        <a asp-controller="Post" asp-action="Index" asp-route-categoryId="@category.Id">@category.Name</a>
+                                          
+
+                                        
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+
+                    </aside>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+

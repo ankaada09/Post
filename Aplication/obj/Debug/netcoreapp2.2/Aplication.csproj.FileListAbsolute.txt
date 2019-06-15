@@ -1,0 +1,14 @@
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Aplication.deps.json
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Aplication.dll
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Aplication.pdb
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.csprojAssemblyReference.cache
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.AssemblyInfoInputs.cache
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.AssemblyInfo.cs
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.dll
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.pdb
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Domen.dll
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Domen.pdb
+C:\Users\Aleksandar\source\repos\Post\Aplication\obj\Debug\netcoreapp2.2\Aplication.csproj.CopyComplete
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Aleksandar\source\repos\Post\Aplication\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.xml
