@@ -20,7 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Aplication\Aplication.csproj" />
     <ProjectReference Include="..\DataAcess\DataAcess.csproj" />
-    <ProjectReference Include="..\Domen\Domen.csproj" />
     <ProjectReference Include="..\EFCommand\EFCommand.csproj" />
   </ItemGroup>
 

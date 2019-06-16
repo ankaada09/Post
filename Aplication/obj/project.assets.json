@@ -207,16 +207,6 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
-      },
-      "Domen/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.2",
-        "compile": {
-          "bin/placeholder/Domen.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Domen.dll": {}
-        }
       }
     }
   },
@@ -688,16 +678,10 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
-    },
-    "Domen/1.0.0": {
-      "type": "project",
-      "path": "../Domen/Domen.csproj",
-      "msbuildProject": "../Domen/Domen.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
-      "Domen >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -730,11 +714,7 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {
-            "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj": {
-              "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

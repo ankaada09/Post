@@ -25,18 +25,20 @@ namespace EFCommand
                 throw new EntityNoFound();
             }
 
+            var id = type.Id;
 
+            var slike = new Domen.Picture
+            {  Id=request.Id,
+                Name = request.Pictures,
+                PostId=id
+                
 
-            var slike = request.Pictures.Select(s => new Domen.Picture
-            {
-                Name = s
-            });
+            };
 
-           foreach(var s in slike)
-            {
-                type.Pictures.Add(s);
-            }
+          
+                type.Pictures.Add(slike);
 
+            type.Id = request.Id;
             type.Name = request.Name;
             type.Text = request.Text;
 

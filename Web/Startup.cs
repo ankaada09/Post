@@ -47,6 +47,8 @@ namespace Web
             services.AddTransient<IGetOnePostCommand, EFGetOnePost>();
             services.AddTransient<IEditPostCommand,EFEditPostCommand>();
             services.AddTransient<IGetAddPost, EFAddPost>();
+            services.AddTransient<IAddCategoryCommand, EFAddCategoryCommand>();
+            
 
 
 

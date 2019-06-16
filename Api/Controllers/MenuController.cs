@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.Helpers;
+using Aplication;
 using Aplication.DTO;
 using Aplication.Exeption;
 using Aplication.ICommand;
@@ -20,14 +22,16 @@ namespace Api.Controllers
         private readonly IAddMenuCommand _addMenu;
         private readonly IEditMenuCommand _editMenu;
         private readonly IDeleteMenu _deleteMenu;
+        private readonly LoggedUser _loggedUser;
 
-        public MenuController(IGetMenuCommand getMenu, IGetOneMenuCommand getOne, IAddMenuCommand addMenu, IEditMenuCommand editMenu, IDeleteMenu deleteMenu)
+        public MenuController(IGetMenuCommand getMenu, IGetOneMenuCommand getOne, IAddMenuCommand addMenu, IEditMenuCommand editMenu, IDeleteMenu deleteMenu, LoggedUser loggedUser)
         {
             _getMenu = getMenu;
             _getOne = getOne;
             _addMenu = addMenu;
             _editMenu = editMenu;
             _deleteMenu = deleteMenu;
+            _loggedUser = loggedUser;
         }
 
 
@@ -37,16 +41,47 @@ namespace Api.Controllers
 
 
 
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Menu
+        ///     {
+        ///        "id":1,
+        ///        "menuName":"Pocetna"
+        ///        "link":""
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // GET: api/Menu
+        [LoggedIn("Admin")]
         [HttpGet]
-        public IActionResult Get([FromQuery]MenuSearch search)
+        public ActionResult Get([FromQuery]MenuSearch search)
         {
             return Ok(_getMenu.Execute(search));
         }
-
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Menu
+        ///     {
+        ///        
+        ///        "menuName":"Pocetna"
+        ///        "link":""
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // GET: api/Menu/5
+        [LoggedIn("Admin")]
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -58,15 +93,30 @@ namespace Api.Controllers
                 return NotFound();
             }
         }
-
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Menu
+        ///     {
+        ///        
+        ///        "menuName":"Pocetna"
+        ///        "link":""
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // POST: api/Menu
+        [LoggedIn("Admin")]
         [HttpPost]
-        public IActionResult Post([FromBody] MenuDto dto)
+        public ActionResult Post([FromBody] MenuDto dto)
         {
             try
             {
                 _addMenu.Execute(dto);
-                return NoContent();
+                return StatusCode(201);
             }
             catch (EntityAlreadyExists)
             {
@@ -79,10 +129,26 @@ namespace Api.Controllers
             }
 
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Menu
+        ///     {
+        ///        "id":1,
+        ///        "menuName":"Pocetna"
+        ///        "link":""
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // PUT: api/Menu/5
+        [LoggedIn("Admin")]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] MenuDto dto)
+        public ActionResult Put(int id, [FromBody] MenuDto dto)
         {
             try
             {
@@ -98,8 +164,9 @@ namespace Api.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [LoggedIn("Admin")]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

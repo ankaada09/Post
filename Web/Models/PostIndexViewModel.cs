@@ -14,6 +14,9 @@ namespace Web.Models
 
         public IEnumerable<UpdatePostDto> UpdatePost { get; set; }
 
-        public IEnumerable<PictureDto> PictureDtos {get; set;}
+        public IEnumerable<PictureDto> PictureDtos { get; set; }
+        
+
+        
     }
 }

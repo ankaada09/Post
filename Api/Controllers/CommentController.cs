@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.Helpers;
+using Aplication;
 using Aplication.DTO;
 using Aplication.Exeption;
 using Aplication.ICommand;
@@ -20,14 +22,16 @@ namespace Api.Controllers
         private readonly IAddCommentCommand _addComment;
         private readonly IEditComment _editComment;
         private readonly IDeleteComment _deleteComment;
+        private readonly LoggedUser _loggedUser;
 
-        public CommentController(IGetComment getComment, IGetOneComment getOne, IAddCommentCommand addComment, IEditComment editComment, IDeleteComment deleteComment)
+        public CommentController(IGetComment getComment, IGetOneComment getOne, IAddCommentCommand addComment, IEditComment editComment, IDeleteComment deleteComment, LoggedUser loggedUser)
         {
             _getComment = getComment;
             _getOne = getOne;
             _addComment = addComment;
             _editComment = editComment;
             _deleteComment = deleteComment;
+            _loggedUser = loggedUser;
         }
 
 
@@ -38,14 +42,56 @@ namespace Api.Controllers
 
 
 
+
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Comment
+        ///     {
+        ///        "totalCount":8,
+        ///        "pagesCount":4,
+        ///        "currentPage":1,
+        ///        "data":[
+        ///        {
+        ///         "id":14,
+        ///         "name":"Comment"}
+        ///         
+        ///         
+        ///         
+        ///        
+        ///         
+        /// ]
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // GET: api/Comment
+        [LoggedIn("Korisnik")]
         [HttpGet]
-        public IActionResult Get([FromQuery] CommentSearch search)
+        public ActionResult Get([FromQuery] CommentSearch search)
         {
             return Ok(_getComment.Execute(search));
         }
-
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Comment
+        ///     {
+        ///        
+        ///        "id":1
+        ///        "comment":"Admin"
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // GET: api/Comment/5
+        [LoggedIn("Korisnik")]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -59,15 +105,32 @@ namespace Api.Controllers
                 return NotFound();
             }
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Type
+        ///     {
+        ///        
+        ///        "comment":"I love this"
+        ///        "userId":1,
+        ///        "postId":1
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // POST: api/Comment
+        [LoggedIn("Korisnik")]
         [HttpPost]
-        public IActionResult Post([FromBody] CommentInsertDto dto)
+        public ActionResult Post([FromBody] CommentInsertDto dto)
         {
             try
             {
                 _addComment.Execute(dto);
-                return NoContent();
+                return StatusCode(201);
             }
             catch (EntityAlreadyExists)
             {
@@ -79,10 +142,27 @@ namespace Api.Controllers
                 return StatusCode(500, "An error has occured.");
             }
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Type
+        ///     {
+        ///        
+        ///        "id":"1"
+        ///        "comment":"I love this"
+        ///       
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // PUT: api/Comment/5
+        [LoggedIn("Korisnik")]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CommentDto dto)
+        public ActionResult Put(int id, [FromBody] CommentDto dto)
         {
             try
             {
@@ -97,8 +177,9 @@ namespace Api.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [LoggedIn("Korisnik")]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

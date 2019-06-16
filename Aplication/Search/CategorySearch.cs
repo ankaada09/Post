@@ -9,7 +9,10 @@ namespace Aplication.Search
         public string Keyword { get; set; }
         public bool? OnlyActive { get; set; }
 
-     
 
+        public int PerPage { get; set; } = 2;
+        public int PageNumber { get; set; } = 1;
+
+        
     }
 }

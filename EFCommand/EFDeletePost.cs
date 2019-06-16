@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Aplication.Exeption;
 using Aplication.ICommand;
@@ -21,20 +22,14 @@ namespace EFCommand
                 throw new EntityNoFound();
             }
 
-            if (category.IsDeleted)
-            {
-
-                category.IsDeleted = true;
 
 
-                throw new EntityDeleted();
-            }
+            var db = Context.Pictures.Where(p => p.PostId == category.Id);
 
-
+            Context.Pictures.RemoveRange(db);
 
 
             Context.Posts.Remove(category);
-
             Context.SaveChanges();
         }
     }

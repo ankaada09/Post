@@ -26,10 +26,26 @@ namespace Api.Controllers
         }
 
 
-
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Auth
+        ///     {
+        ///        "username":"jelena",
+        ///        "password":"123456"
+        ///        
+        ///        
+        ///        
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // POST: api/Auth
         [HttpPost]
-        public IActionResult Post(AuthDto dto)
+        public ActionResult Post(AuthDto dto)
         {
             var user= _auth.Execute(dto);
 

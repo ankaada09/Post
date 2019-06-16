@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Api.Helpers;
+using Aplication;
 using Aplication.DTO;
 using Aplication.Exeption;
 using Aplication.ICommand;
@@ -21,20 +23,26 @@ namespace Api.Controllers
     {
         
 
-        private readonly IGetCategory _command;
+        private readonly IGetCateroryApi _command;
         private readonly IGetOneCategory _oneCategory;
         private readonly IAddCategoryCommand _addCategory;
         private IEditCategoryCommand _editCategory;
         private readonly IDeleteCategoryCommand _deleteCategory;
+        private readonly LoggedUser _loggedUser;
 
-        public CategoryController(IGetCategory command, IGetOneCategory oneCategory, IAddCategoryCommand addCategory, IEditCategoryCommand editCategory, IDeleteCategoryCommand deleteCategory)
+        public CategoryController(IGetCateroryApi command, IGetOneCategory oneCategory, IAddCategoryCommand addCategory, IEditCategoryCommand editCategory, IDeleteCategoryCommand deleteCategory, LoggedUser loggedUser)
         {
             _command = command;
             _oneCategory = oneCategory;
             _addCategory = addCategory;
             _editCategory = editCategory;
             _deleteCategory = deleteCategory;
+            _loggedUser = loggedUser;
         }
+
+
+
+
 
 
 
@@ -49,24 +57,63 @@ namespace Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     POST /Todo
+        ///     POST /Category
         ///     {
-        ///        "id": 1,
-        ///        "name": "Item1",
-        ///        "isComplete": true
+        ///        "totalCount":8,
+        ///        "pagesCount":4,
+        ///        "currentPage":1,
+        ///        "data":[
+        ///        {
+        ///         "id":1,
+        ///         "name":"Post"},
+        ///         
+        ///         {
+        ///         "id":1,
+        ///         "name":"1.jpg"
+        ///         }
+        /// ]
+        ///        
         ///     }
         ///
         /// </remarks>
         // GET: api/Category
+        [LoggedIn("Admin")]
         [HttpGet]
-        public IActionResult Get([FromQuery] CategorySearch search)
+        public ActionResult Get([FromQuery] CategorySearch search)
         {
             return Ok(_command.Execute(search));
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Category
+        ///     {
+        ///        "id":8,
+        ///        "name":"Travel"
+        ///
+        ///        
+        ///        
+        ///        
+        ///         
+        ///         
+        ///         
+        ///         
+        ///        
+        ///         
+        ///         
+        /// 
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // GET: api/Category/5
+        [LoggedIn("Admin")]
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try {
                 var categorydto = _oneCategory.Execute(id);
@@ -76,16 +123,31 @@ namespace Api.Controllers
                 return NotFound();
             }
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Catrgoty
+        ///     {
+        ///        
+        ///        "name": "Item1",
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // POST: api/Category
+        [LoggedIn("Admin")]
         [HttpPost]
-        public IActionResult Post([FromBody] CategoryPostDto dto)
+        public ActionResult Post([FromBody] CategoryPostDto dto)
         {
            
             try
             {
                 _addCategory.Execute(dto);
-                return NoContent();
+                return StatusCode(201);
             }
             catch (EntityAlreadyExists)
             {
@@ -99,10 +161,25 @@ namespace Api.Controllers
 
 
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Category
+        ///     {
+        ///        "id": 1,
+        ///        "name": "Item1",
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // PUT: api/Category/5
+        [LoggedIn("Admin")]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CategoryPostDto dto)
+        public ActionResult Put(int id, [FromBody] CategoryPostDto dto)
         {
            
 
@@ -120,8 +197,9 @@ namespace Api.Controllers
         }
 
         // DELETE: api/Category/5
+        [LoggedIn("Admin")]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
            
             try

@@ -4,6 +4,25 @@
         <name>Api</name>
     </assembly>
     <members>
+        <member name="M:Api.Controllers.AuthController.Post(Aplication.DTO.AuthDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Auth
+                 {
+                    "username":"jelena",
+                    "password":"123456"
+                    
+                    
+                    
+                    
+                 }
+            
+             </remarks>
+        </member>
         <member name="M:Api.Controllers.CategoryController.Get(Aplication.Search.CategorySearch)">
              <summary>
              Returns all orders that match provided query
@@ -11,11 +30,518 @@
              <remarks>
              Sample request:
             
-                 POST /Todo
+                 POST /Category
+                 {
+                    "totalCount":8,
+                    "pagesCount":4,
+                    "currentPage":1,
+                    "data":[
+                    {
+                     "id":1,
+                     "name":"Post"},
+                     
+                     {
+                     "id":1,
+                     "name":"1.jpg"
+                     }
+             ]
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CategoryController.Get(System.Int32)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Category
+                 {
+                    "id":8,
+                    "name":"Travel"
+            
+                    
+                    
+                    
+                     
+                     
+                     
+                     
+                    
+                     
+                     
+             
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CategoryController.Post(Aplication.DTO.CategoryPostDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Catrgoty
+                 {
+                    
+                    "name": "Item1",
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CategoryController.Put(System.Int32,Aplication.DTO.CategoryPostDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Category
                  {
                     "id": 1,
                     "name": "Item1",
-                    "isComplete": true
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CommentController.Get(Aplication.Search.CommentSearch)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Comment
+                 {
+                    "totalCount":8,
+                    "pagesCount":4,
+                    "currentPage":1,
+                    "data":[
+                    {
+                     "id":14,
+                     "name":"Comment"}
+                     
+                     
+                     
+                    
+                     
+             ]
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CommentController.Get(System.Int32)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Comment
+                 {
+                    
+                    "id":1
+                    "comment":"Admin"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CommentController.Post(Aplication.DTO.CommentInsertDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Type
+                 {
+                    
+                    "comment":"I love this"
+                    "userId":1,
+                    "postId":1
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.CommentController.Put(System.Int32,Aplication.DTO.CommentDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Type
+                 {
+                    
+                    "id":"1"
+                    "comment":"I love this"
+                   
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.MenuController.Get(Aplication.Search.MenuSearch)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Menu
+                 {
+                    "id":1,
+                    "menuName":"Pocetna"
+                    "link":""
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.MenuController.Get(System.Int32)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Menu
+                 {
+                    
+                    "menuName":"Pocetna"
+                    "link":""
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.MenuController.Post(Aplication.DTO.MenuDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Menu
+                 {
+                    
+                    "menuName":"Pocetna"
+                    "link":""
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.MenuController.Put(System.Int32,Aplication.DTO.MenuDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Menu
+                 {
+                    "id":1,
+                    "menuName":"Pocetna"
+                    "link":""
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.PostController.GetPost(Aplication.Search.PostSearch)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Post
+                 {
+                    "totalCount":8,
+                    "pagesCount":4,
+                    "currentPage":1,
+                    "data":[
+                    {
+                     "id":1,
+                     "pictureDto":[
+                     {
+                        "id":4,
+                        "name":"1.jpg"
+                        
+             } ,
+              {         "id":5,
+                         "name":"2.jpg"
+             
+             }
+             ],
+                   "name":"Post",
+                   "text":"Jlena",
+                   "createdAt":"2018.5.6",
+                   "categoryName":"Travel",
+                   "userId":1
+                     
+             
+                     
+                     
+                    
+                     
+                    
+             ]
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.PostController.Get(System.Int32)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Post
+                 {
+                    "totalCount":8,
+                    "pagesCount":4,
+                    "currentPage":1,
+                    "data":[
+                    {
+                     "id":1,
+                     "pictureDto":[
+                     {
+                        "id":4,
+                        "name":"1.jpg"
+                        
+             } 
+                    
+                        
+             
+             }
+             ],
+                   "name":"Post",
+                   "text":"Jlena",
+                   "createdAt":"2018.5.6",
+                   "categoryName":"Travel",
+                   "commentDto":[
+                   {
+                      "id":1,
+                      "comment":"I love this"
+             }      
+             ]
+                     
+             
+                     
+                     
+                    
+                     
+                    
+             ]
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.PostController.Post(Api.Controllers.PostController.AddPost)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Post
+                 {
+                    
+                    "name": "Post",
+                    "text":"Text",
+                    "userId":1,
+                    "categoryid":1,
+                    "image":"1.jpg"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.PostController.Put(System.Int32,Api.Controllers.PostController.AddPost)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Post
+                 {
+                    "id":1
+                    "name": "Post",
+                    "text":"Text",
+                   
+                    
+                    "image":"1.jpg"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.TypeController.Get(Aplication.Search.TypeSearch)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Type
+                 {
+                    
+                    "id": 1,
+                    "name":"Admin"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.TypeController.Get(System.Int32)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Type
+                 {
+                    
+                    
+                    "name":"Admin"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.TypeController.Post(Aplication.DTO.TypeDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Type
+                 {
+                    
+                    
+                    "name":"Admin"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.TypeController.Put(System.Int32,Aplication.DTO.TypeDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Type
+                 {
+                    
+                    "id":1
+                    "name":"Admin"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.UserController.Get(Aplication.Search.UserSearch)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /User
+                 {
+                    "totalCount":8,
+                    "pagesCount":4,
+                    "currentPage":1,
+                    "data":[
+                    {
+                     "id":1,
+                     "username":"korisnik",
+                     "email":"jelena@gmail.com",
+                     "userType":"Korisnik"
+             },
+                     
+                     
+                    
+                     
+                    
+             ]
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.UserController.Get(System.Int32)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /User
+                 {
+                    
+                    "username": "korisnik",
+                    "email":"jelena@gmail.com",
+                    "password":"",
+                    "userType":"korisnik"
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.UserController.Post(Aplication.DTO.AddUserDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Catrgoty
+                 {
+                    
+                    "username": "korisnik",
+                    "pasword":"korisnik",
+                    "email":"jelena@gmai.com",
+                    "userType":1
+                    
+                 }
+            
+             </remarks>
+        </member>
+        <member name="M:Api.Controllers.UserController.Put(System.Int32,Aplication.DTO.UpdateUserDto)">
+             <summary>
+             Returns all orders that match provided query
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Catrgoty
+                 {
+                    "id":1
+                    "username": "korisnik",
+                    "pasword":"korisnik",
+                    "email":"jelena@gmai.com",
+                    "userType":1
+                    
                  }
             
              </remarks>

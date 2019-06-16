@@ -11,6 +11,8 @@ namespace Aplication.DTO
         [Required(ErrorMessage = "This field is required ")]
         [MinLength(3, ErrorMessage = "Category name must have at least 3 characters.")]
         public string Name { get; set; }
+
+
        
 
     }

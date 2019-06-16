@@ -4781,9 +4781,6 @@
       "Aplication/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
-        "dependencies": {
-          "Domen": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Aplication.dll": {}
         },
@@ -13109,7 +13106,6 @@
     ".NETCoreApp,Version=v2.2": [
       "Aplication >= 1.0.0",
       "DataAcess >= 1.0.0",
-      "Domen >= 1.0.0",
       "EFCommand >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
@@ -13153,9 +13149,6 @@
             },
             "C:\\Users\\Aleksandar\\source\\repos\\Post\\DataAcess\\DataAcess.csproj": {
               "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\DataAcess\\DataAcess.csproj"
-            },
-            "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj": {
-              "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj"
             },
             "C:\\Users\\Aleksandar\\source\\repos\\Post\\EFCommand\\EFCommand.csproj": {
               "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\EFCommand\\EFCommand.csproj"

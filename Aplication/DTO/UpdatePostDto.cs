@@ -20,8 +20,8 @@ namespace Aplication.DTO
         [Required]
         [MinLength(3, ErrorMessage = "Picture name must have at least 3 characters.")]
         [MaxLength(20)]
-       //public List<PictureDto> pictureDtos { get; set; }
-        public IEnumerable<string> Pictures { get; set; }
+        //public List<PictureDto> pictureDtos { get; set; }
+        public string Pictures { get; set; } 
         //public int PictureId { get; set; }
         
 

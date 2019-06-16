@@ -15,6 +15,7 @@ namespace Aplication.DTO
         public string CategoryName { get; set; }
         public string UserId { get; set; }
 
+
        
     }
 }

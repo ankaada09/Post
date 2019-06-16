@@ -515,9 +515,6 @@
         }
       },
       "Aplication/1.0.0": {
-        "dependencies": {
-          "Domen": "1.0.0"
-        },
         "runtime": {
           "Aplication.dll": {}
         }

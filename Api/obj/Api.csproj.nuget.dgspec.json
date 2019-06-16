@@ -36,9 +36,6 @@
               "C:\\Users\\Aleksandar\\source\\repos\\Post\\DataAcess\\DataAcess.csproj": {
                 "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\DataAcess\\DataAcess.csproj"
               },
-              "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj": {
-                "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj"
-              },
               "C:\\Users\\Aleksandar\\source\\repos\\Post\\EFCommand\\EFCommand.csproj": {
                 "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\EFCommand\\EFCommand.csproj"
               }
@@ -113,11 +110,7 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {
-              "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj": {
-                "projectPath": "C:\\Users\\Aleksandar\\source\\repos\\Post\\Domen\\Domen.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

@@ -27,17 +27,20 @@
                                         @posts.UserId
 
                                         <p> @posts.CategoryName</p>
+                                       
                                     </div>
                                     @foreach (var slika in posts.PictureDtos)
                                     {
-                                        <p>@slika.Name</p>
+                                        <img src="~/uploads/@slika.Name" />
                                     }
+                                    @Html.ActionLink("Details", "Details", new { id = posts.Id })|
                                     @Html.ActionLink("Edit", "Edit", new { id = posts.Id }) |
 
                                     @Html.ActionLink("Delete", "Delete", new { id = posts.Id })
                                 </div>
                             </div>
                         </article>
+                        <a asp-action="Create">Create New</a>
 
                     </div>
                 </div>

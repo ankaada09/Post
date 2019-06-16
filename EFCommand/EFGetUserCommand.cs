@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Aplication.DTO;
 using Aplication.ICommand;
+using Aplication.Responses;
 using Aplication.Search;
 using DataAcess;
 using Microsoft.EntityFrameworkCore;
@@ -16,25 +17,35 @@ namespace EFCommand
         {
         }
 
-        public IEnumerable<UserDto> Execute(UserSearch request)
+        public PagedResponses<UserDto> Execute(UserSearch request)
         {
-
             var query = Context.Users.AsQueryable();
+            var totalCount = query.Count();
 
-            if (request.UserName != null)
+            query = query.Include(p=>p.UserType).Skip((request.PageNumber - 1) * request.PerPage).Take(request.PerPage);
+
+            var pagesCount = (int)Math.Ceiling((double)totalCount / request.PerPage);
+
+            var response = new PagedResponses<UserDto>
             {
-                query = query.Where(c => c.Username.ToLower().Contains(request.UserName.ToLower()));
+                CurrentPage = request.PageNumber,
+                TotalCount = totalCount,
+                PagesCount = pagesCount,
+                Data = query.Select(p => new UserDto
+                {
+                    Id = p.Id,
+                    UserName=p.Username,
+                    Email=p.Email,
+                    userType=p.UserType.Type
 
-            }
-            return query.Include(c=>c.UserType).Select(c => new UserDto
-            {
-                Id=c.Id,
-                UserName=c.Username,
-                Email=c.Email,
-                Password=c.Password,
-                userType = c.UserType.Type
 
-            });
+                })
+
+
+
+
+            };
+            return response;
         }
     }
 }

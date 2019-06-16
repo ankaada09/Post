@@ -25,9 +25,9 @@ namespace Web.Controllers
         private readonly PostContext _context;
         private readonly IGetOnePostCommand _getOne;
         private readonly IEditPostCommand _editPost;
-        
+        private readonly IGetAddPost _addPost;
 
-        public PostController(IGetPostsCommand getPost, IGetCategory getCategory, IDeletePost deletePost, PostContext context, IGetOnePostCommand getOne, IEditPostCommand editPost)
+        public PostController(IGetPostsCommand getPost, IGetCategory getCategory, IDeletePost deletePost, PostContext context, IGetOnePostCommand getOne, IEditPostCommand editPost, IGetAddPost addPost)
         {
             _getPost = getPost;
             _getCategory = getCategory;
@@ -35,6 +35,7 @@ namespace Web.Controllers
             _context = context;
             _getOne = getOne;
             _editPost = editPost;
+            _addPost = addPost;
         }
 
 
@@ -49,6 +50,15 @@ namespace Web.Controllers
 
 
 
+
+
+
+
+
+
+
+
+        
 
         // GET: Post
         public IActionResult Index([FromQuery]PostSearch search)
@@ -63,9 +73,29 @@ namespace Web.Controllers
         }
 
         // GET: Post/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                ViewBag.Pictures = _context.Pictures.Where(p=> p.PostId== id).Select(o => new PictureDto
+                {
+                    Name=o.Name
+                });
+
+                ViewBag.Comments = _context.Comments.Where(p=> p.PostId == id).Select(p => new CommentDto
+                {
+                    Comment=p.Comments
+                });
+
+                var mi = _getOne.Execute(id);
+
+                
+                return View(mi);
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
         }
 
         // GET: Post/Create
@@ -76,24 +106,73 @@ namespace Web.Controllers
                Name=s.NameCat
 
             });
+
+            ViewBag.Users = _context.Users.Select(s => new UserDto
+            {
+                Id=s.Id,
+                UserName=s.Username
+            });
             return View();
         }
+
+        //public class AddPost
+        //{
+        //    public int Id { get; set; }
+        //    public IFormFile Image { get; set; }
+
+        //    public string Name { get; set; }
+        //    public string Text { get; set; }
+        //    public int CategoryId { get; set; }
+        //    public int UserId { get; set; }
+
+
+
+        //}
 
         // POST: Post/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(AddPostcs p)
         {
+            var ext = Path.GetExtension(p.Image.FileName); 
+            if (!FileUpload.AllowedExtensions.Contains(ext))
+            {
+                return UnprocessableEntity("Image extension is not allowed.");
+            }
             try
             {
-                // TODO: Add insert logic here
+                var newFileName = Guid.NewGuid().ToString() + "_" + p.Image.FileName;
 
-                return RedirectToAction(nameof(Index));
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", newFileName);
+                p.Image.CopyTo(new FileStream(filePath, FileMode.Create));
+
+                var post = new InsertPostDto
+                {
+                    Name = p.Name,
+                    FileName = newFileName,
+                    Text = p.Text,
+                    CategoryId = p.CategoryId,
+                    UserId = p.UserId,
+
+                };
+                _addPost.Execute(post);
+
+
+                return  RedirectToAction("Index");
             }
-            catch
+            catch (EntityNoFound n)
             {
-                return View();
+                return NotFound();
             }
+            catch (EntityAlreadyExists b) {
+                return NotFound();
+            }
+            catch (Exception e)
+            {
+                TempData["greska"] = "Doslo je do greske.";
+
+            }
+            return View();
         }
 
         // GET: Post/Edit/5

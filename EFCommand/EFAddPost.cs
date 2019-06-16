@@ -24,10 +24,10 @@ namespace EFCommand
             {
                 throw new EntityAlreadyExists();
             }
-            if (!Context.Posts.Any(p=>p.UserId == request.UserId)) {
+            //if (!Context.Posts.Any(p=>p.UserId == request.UserId)) {
 
-                throw new EntityNoFound();
-            }
+            //    throw new EntityNoFound();
+            //}
             if (!Context.Posts.Any(p => p.CategoryPostId == request.CategoryId)) {
                 throw new EntityNoFound();
             }

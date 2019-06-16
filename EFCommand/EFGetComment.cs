@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Aplication.DTO;
 using Aplication.ICommand;
+using Aplication.Responses;
 using Aplication.Search;
 using DataAcess;
 using Microsoft.EntityFrameworkCore;
@@ -16,19 +17,33 @@ namespace EFCommand
         {
         }
 
-        public IEnumerable<CommentDto> Execute(CommentSearch request)
+        public PagedResponses<CommentDto> Execute(CommentSearch request)
         {
             var query = Context.Comments.AsQueryable();
+            var totalCount = query.Count();
 
-            if (request.Comment != null) {
-                query = query.Where(c => c.Comments.ToLower().Contains(request.Comment.ToLower()));
-            }
+            query = query.Skip((request.PageNumber - 1) * request.PerPage).Take(request.PerPage);
 
-            return query.Select(c => new CommentDto
+            var pagesCount = (int)Math.Ceiling((double)totalCount / request.PerPage);
+
+            var response = new PagedResponses<CommentDto>
             {
-               Id=c.Id,
-               Comment=c.Comments,
-            });
+                CurrentPage = request.PageNumber,
+                TotalCount = totalCount,
+                PagesCount = pagesCount,
+                Data = query.Select(p => new CommentDto
+                {
+                    Id = p.Id,
+                   Comment=p.Comments
+
+
+                })
+
+
+
+
+            };
+            return response;
         }
     }
 }

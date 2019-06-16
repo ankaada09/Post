@@ -71,6 +71,8 @@ namespace Api
             services.AddTransient<IDeletePost, EFDeletePost>();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IAuthCommand, EFAuthCommand>();
+            services.AddTransient<IGetCateroryApi, EFGetCtegoryApi>();
+            services.AddTransient<IEditPostCommand, EFEditPostCommand>();
 
             var key = Configuration.GetSection("Encryption")["key"];
 

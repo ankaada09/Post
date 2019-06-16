@@ -26,7 +26,6 @@
         "dependencies": {
           "Aplication": "1.0.0",
           "DataAcess": "1.0.0",
-          "Domen": "1.0.0",
           "EFCommand": "1.0.0",
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -540,9 +539,6 @@
         }
       },
       "Aplication/1.0.0": {
-        "dependencies": {
-          "Domen": "1.0.0"
-        },
         "runtime": {
           "Aplication.dll": {}
         },

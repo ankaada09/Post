@@ -27,12 +27,16 @@
                         @Html.DisplayFor(modelItem => posts.Name)
                     </td>
                     <td>
+                        @Html.ActionLink("Details", "Details", new { id = posts.Id }) |
                         @Html.ActionLink("Edit", "Edit", new { id = posts.Id }) |
-                       
-                        @Html.ActionLink("Delete", "Delete", new {  id=posts.Id })
+
+                        @Html.ActionLink("Delete", "Delete", new { id = posts.Id })|
+
                     </td>
                 </tr>
+
             }
+            <a asp-action="Create">Create New</a>
         </tbody>
     </table>
 

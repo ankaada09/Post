@@ -42,17 +42,62 @@ namespace Api.Controllers
 
 
 
-        [LoggedIn]
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /User
+        ///     {
+        ///        "totalCount":8,
+        ///        "pagesCount":4,
+        ///        "currentPage":1,
+        ///        "data":[
+        ///        {
+        ///         "id":1,
+        ///         "username":"korisnik",
+        ///         "email":"jelena@gmail.com",
+        ///         "userType":"Korisnik"
+        /// },
+        ///         
+        ///         
+        ///        
+        ///         
+        ///        
+        /// ]
+        ///        
+        ///     }
+        ///
+        /// </remarks>
+        [LoggedIn("Admin")]
         [HttpGet]
-        public IActionResult Get([FromQuery]UserSearch search)
+        public ActionResult Get([FromQuery]UserSearch search)
         {
             return Ok(_getUser.Execute(search));
             
         }
-
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /User
+        ///     {
+        ///        
+        ///        "username": "korisnik",
+        ///        "email":"jelena@gmail.com",
+        ///        "password":"",
+        ///        "userType":"korisnik"
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // GET: api/User/5
+        [LoggedIn("Admin")]
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public ActionResult Get(int id)
         {
             try
             {
@@ -64,10 +109,27 @@ namespace Api.Controllers
                 return NotFound();
             }
         }
-
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Catrgoty
+        ///     {
+        ///        
+        ///        "username": "korisnik",
+        ///        "pasword":"korisnik",
+        ///        "email":"jelena@gmai.com",
+        ///        "userType":1
+        ///        
+        ///     }
+        ///
+        /// </remarks>
         // POST: api/User
+        [LoggedIn("Admin")]
         [HttpPost]
-        public IActionResult Post([FromBody] AddUserDto dto)
+        public ActionResult Post([FromBody] AddUserDto dto)
         {
             try
             {
@@ -84,16 +146,34 @@ namespace Api.Controllers
                 return StatusCode(500, "An error has occured.");
             }
         }
+        /// <summary>
+        /// Returns all orders that match provided query
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Catrgoty
+        ///     {
+        ///        "id":1
+        ///        "username": "korisnik",
+        ///        "pasword":"korisnik",
+        ///        "email":"jelena@gmai.com",
+        ///        "userType":1
+        ///        
+        ///     }
+        ///
+        /// </remarks>
 
         // PUT: api/User/5
+        [LoggedIn("Admin")]
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] UpdateUserDto dto)
+        public ActionResult Put(int id, [FromBody] UpdateUserDto dto)
         {
 
             try
             {
                 _editUser.Execute(dto);
-                return NoContent();
+                return StatusCode(201);
             }
             catch (Exception)
             {
@@ -103,8 +183,9 @@ namespace Api.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
+        [LoggedIn("Admin")]
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             try
             {

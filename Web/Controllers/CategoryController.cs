@@ -18,14 +18,17 @@ namespace Web.Controllers
         private readonly IEditCategoryCommand _editCategory;
         private readonly IDeleteCategoryCommand _deleteCategory;
         private readonly IGetOneCategory _oneCategory;
+        private readonly IAddCategoryCommand _addCategory;
 
-        public CategoryController(IGetCategory getCategory, IEditCategoryCommand editCategory, IDeleteCategoryCommand deleteCategory, IGetOneCategory oneCategory)
+        public CategoryController(IGetCategory getCategory, IEditCategoryCommand editCategory, IDeleteCategoryCommand deleteCategory, IGetOneCategory oneCategory, IAddCategoryCommand addCategory)
         {
             _getCategory = getCategory;
             _editCategory = editCategory;
             _deleteCategory = deleteCategory;
             _oneCategory = oneCategory;
+            _addCategory = addCategory;
         }
+
 
 
 
@@ -42,7 +45,20 @@ namespace Web.Controllers
         // GET: Category/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            try
+            {
+                var mi = _oneCategory.Execute(id);
+                return View(mi);
+            }
+            catch (EntityNoFound e)
+            {
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception n) {
+                return View();
+            }
+         
         }
 
         // GET: Category/Create
@@ -54,18 +70,24 @@ namespace Web.Controllers
         // POST: Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(CategoryPostDto dto)
         {
             try
             {
-                // TODO: Add insert logic here
+                _addCategory.Execute(dto);
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (EntityNoFound n)
             {
-                return View();
+                return NotFound();
             }
+            catch (Exception e)
+            {
+                TempData["greska"] = "Doslo je do greske.";
+
+            }
+            return View();
         }
 
         // GET: Category/Edit/5

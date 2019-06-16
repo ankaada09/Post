@@ -40,3 +40,7 @@ C:\Users\Aleksandar\source\repos\Post\Web\bin\Debug\netcoreapp2.2\Domen.pdb
 C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Category\Index.g.cshtml.cs
 C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Category\Edit.g.cshtml.cs
 C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Post\Edit.g.cshtml.cs
+C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Post\Create.g.cshtml.cs
+C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Post\Details.g.cshtml.cs
+C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Category\Details.g.cshtml.cs
+C:\Users\Aleksandar\source\repos\Post\Web\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.g.cshtml.cs
