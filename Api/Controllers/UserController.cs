@@ -127,7 +127,7 @@ namespace Api.Controllers
         ///
         /// </remarks>
         // POST: api/User
-        [LoggedIn("Admin")]
+        
         [HttpPost]
         public ActionResult Post([FromBody] AddUserDto dto)
         {
